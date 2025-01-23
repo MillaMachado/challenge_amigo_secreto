@@ -33,8 +33,27 @@ function adicionarAmigo(){
         //adiciona o nome na lista de amigos
         amigos.push(nome);
         //limpa o campo nome
-        nome = "";
+        document.getElementById("amigo").value = "";
+
         console.log(amigos);
         console.log(nome);
+
+        atualizaAmigos(amigos);
    }
+}
+
+function atualizaAmigos(amigos){
+    //obter o elemento da lista
+    let lista = document.getElementById("listaAmigos");
+    //limpar lista existente
+    lista.innerHTML = "";
+    //loop for para pecorrer o array amigos e criar elementos de lista
+    for (let i = 0; i < amigos.length; i++){
+        //cria elemento li
+        let li = document.createElement("li");
+        //atribui o amigo ao elemento li
+        li.appendChild(document.createTextNode(amigos[i]));
+        //atribui o elemento li a lista ul
+        lista.appendChild(li);
+    }
 }
