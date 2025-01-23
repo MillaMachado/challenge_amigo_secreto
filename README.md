@@ -26,3 +26,4 @@ Camilla Machado
 <p> 4. Implementar uma função para atualizar a lista de amigos. </p>
 <p> 5. Implementar uma função para sortear os amigos. </p>
 <p> 6. Não esquecer de validar entrada caso tente adicionar um nome vazio. </p>
+<p> Para ver o site funcionando acesse o link: https://millamachado.github.io/challenge_amigo_secreto/</p>
