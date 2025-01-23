@@ -19,41 +19,59 @@ lista será selecionado aleatoriamente e exibido na página.
 // criando lista de amigos
 let amigos = [];
 
-// função adicionar amigos
 function adicionarAmigo(){
-    //obtem o valor do campo texto
+    // obtem o valor do campo texto do HTML
     let nome = document.getElementById("amigo").value;
-    console.log(nome);
-    //valida se o campo texto está vazio
+
+    // valida se o campo texto está vazio
     if(nome == ""){
-        //exibe um alerta
+        // exibe um alerta
         alert("Por favor, insira um nome.");
     }
     else{
-        //adiciona o nome na lista de amigos
+        // adiciona o nome na lista de amigos
         amigos.push(nome);
-        //limpa o campo nome
+        // limpa o campo nome
         document.getElementById("amigo").value = "";
-
-        console.log(amigos);
-        console.log(nome);
-
+        // chama a função atualizarAmigos passando a lista amigos por parâmetro
         atualizaAmigos(amigos);
    }
 }
 
 function atualizaAmigos(amigos){
-    //obter o elemento da lista
+    // obtem o elemento da lista no HTML
     let lista = document.getElementById("listaAmigos");
-    //limpar lista existente
+    // limpa a lista existente de nomes
     lista.innerHTML = "";
-    //loop for para pecorrer o array amigos e criar elementos de lista
+    // loop for para pecorrer o array amigos e criar elementos de lista
     for (let i = 0; i < amigos.length; i++){
-        //cria elemento li
+        // cria o elemento li
         let li = document.createElement("li");
-        //atribui o amigo ao elemento li
+        // atribui o nome da lista amigos ao elemento li
         li.appendChild(document.createTextNode(amigos[i]));
-        //atribui o elemento li a lista ul
+        // atribui o elemento li a lista ul
         lista.appendChild(li);
     }
 }
+
+function sortearAmigo(){
+    // valida se a lista de amigos está vazia
+    if(amigos == ""){
+        // exibe um alerta avisando que a lista esta vazia
+        alert("A lista esta vazia. Por favor, insira um nome.");
+    }
+    // caso a lista não esteja vazia
+    else{
+        // gera um índice com o tamanho máximo de elementos
+        let indice = Math.floor(Math.random() * amigos.length);
+        // obtem o elemento resultado do HTML
+        let resultado = document.getElementById("resultado");
+        // obtem o elemento da lista no HTML
+        lista = document.getElementById("listaAmigos");
+        // limpa a lista existente de nomes
+        lista.innerHTML = "";
+        // atribui o nome da lista de amigos pelo índice escolhido aleatoriamente ao elemento ul do HTML
+        resultado.innerHTML = "O amigo secreto sorteado é: " + amigos[indice];
+    }
+}
+
